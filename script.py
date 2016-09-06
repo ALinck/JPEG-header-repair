@@ -26,13 +26,14 @@ def header_repair():
         IDYES = 6
         IDNO = 7
         IDOK = 0
-        if len(rep_files) > 0:
-            def MessageBoxW(title, text, style):
+        
+        def MessageBoxW(title, text, style):
                 result = _MessageBoxW(0, text, title, style)
                 if not result:
                     raise ctypes.WinError(ctypes.get_last_error())
                 return result
-
+                
+        if len(rep_files) > 0:
             def main():
                 try:
                     result = MessageBoxW("Results", str(len(rep_files)) +
@@ -48,12 +49,6 @@ def header_repair():
             main()
 
         else:
-            def MessageBoxW(title, text, style):
-                result = _MessageBoxW(0, text, title, style)
-                if not result:
-                    raise ctypes.WinError(ctypes.get_last_error())
-                return result
-
             def main():
                 try:
                     MessageBoxW("Results", "No bad headers were found", 0)
