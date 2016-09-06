@@ -1,7 +1,6 @@
 def header_repair():
     import mmap
     import os
-    import ctypes
     from tkinter.filedialog import askdirectory
     filename = askdirectory()
     headers = {"jpg": b'\xff\xd8\xff'}
@@ -21,11 +20,10 @@ def header_repair():
                     f.close()
 
     def results():
+        import ctypes
         _user32 = ctypes.WinDLL('user32', use_last_error=True)
         _MessageBoxW = _user32.MessageBoxW
         IDYES = 6
-        IDNO = 7
-        IDOK = 0
         
         def MessageBoxW(title, text, style):
                 result = _MessageBoxW(0, text, title, style)
