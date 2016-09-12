@@ -1,3 +1,6 @@
-from script import header_repair
+import script
+import config
 
-header_repair()
+script.header_repair()
+
+script.results(config.rep_files)
