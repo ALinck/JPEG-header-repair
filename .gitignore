@@ -1,0 +1,5 @@
+# ignored_folders
+/jpg_rep/
+
+#ignored file types
+*.pyc

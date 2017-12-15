@@ -1,6 +1,5 @@
-import script
-import config
+import repair
 
-script.header_repair()
 
-script.results(config.rep_files)
+results = repair.HeaderRepair(repair.FileProvider())
+repair.DisplayResults().display_results(results)
